@@ -7,6 +7,6 @@
   "prefix": "config_api",
   "priority": -0.9,
   "main_file": "main.lua",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": ["Steamodded (>=1.*)", "Lovely (>=0.6)", "loader-api (>=1.*)"]
 }

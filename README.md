@@ -168,38 +168,38 @@ If you need a bit more organization in your configuration, the api will automati
 ```lua
 ["{{MOD_ID}}"].CONFIG_UI = {
     nested_tabs = {
-		order = 2,
-		config_api_label = "Nested Tabs",
-		tab1 = {
-			config_api_label = "Tab 1",
-			tab1 = {
-				config_api_label = "Tab 1, 1",
-				toggle = {
-					type = "toggle",
-				},
-			},
-			tab2 = {
-				config_api_label = "Tab 1, 2",
-				toggle = {
-					type = "toggle",
-				},
-			},
-		},
-		tab2 = {
-			config_api_label = "Tab 2",
-			tab1 = {
-				config_api_label = "Tab 2, 1",
-				toggle = {
-					type = "toggle",
-				},
-			},
-			tab2 = {
-				config_api_label = "Tab 2, 2",
-				toggle = {
-					type = "toggle",
-				},
-			},
-		},
-	},
+        order = 2,
+        config_api_label = "Nested Tabs",
+        tab1 = {
+            config_api_label = "Tab 1",
+            tab1 = {
+                config_api_label = "Tab 1, 1",
+                toggle = {
+                    type = "toggle",
+                },
+            },
+            tab2 = {
+                config_api_label = "Tab 1, 2",
+                toggle = {
+                    type = "toggle",
+                },
+            },
+        },
+        tab2 = {
+            config_api_label = "Tab 2",
+            tab1 = {
+                config_api_label = "Tab 2, 1",
+                toggle = {
+                    type = "toggle",
+                },
+            },
+            tab2 = {
+                config_api_label = "Tab 2, 2",
+                toggle = {
+                    type = "toggle",
+                },
+            },
+        },
+    },
 }
 ```

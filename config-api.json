@@ -1,0 +1,12 @@
+{
+  "id": "config-api",
+  "name": "Config API",
+  "display_name": "Config API",
+  "author": ["jlwoolf"],
+  "description": "A mod to make creating custom mod configs easier.",
+  "prefix": "config_api",
+  "priority": -0.9,
+  "main_file": "main.lua",
+  "version": "0.1.0",
+  "dependencies": ["Steamodded (>=1.*)", "Lovely (>=0.6)", "loader-api (>=1.*)"]
+}

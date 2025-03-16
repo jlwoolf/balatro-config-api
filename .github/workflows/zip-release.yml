@@ -1,0 +1,44 @@
+name: Create Archive
+on: [push]
+
+env:
+  MOD_NAME: config-api
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@master
+    
+    - name: Get the version
+      run: |
+        delimiter=$(openssl rand -hex 8)
+        {
+            echo "METADATA<<$delimiter"
+            sed -e '$a\' "$MOD_NAME".json
+            echo "$delimiter"
+        } >> "$GITHUB_ENV"
+        
+    - name: Archive Release Zip
+      uses: thedoctor0/zip-release@0.7.5
+      with:
+        type: 'zip'
+        filename: '${{ env.MOD_NAME }}-${{ fromJson(env.METADATA).version }}.zip'
+        exclusions: '*.git* /*node_modules/* .editorconfig *.github*'
+
+    - uses: rickstaa/action-create-tag@v1
+      with:
+        tag: "${{ fromJson(env.METADATA).version }}"
+        force_push_tag: true
+
+    - name: Upload Release
+      uses: ncipollo/release-action@v1.12.0
+      with:
+        allowUpdates: true
+        replacesArtifacts: true
+        artifacts: "${{ env.MOD_NAME }}-${{ fromJson(env.METADATA).version }}.zip"
+        body: ""
+        commit: "main"
+        tag: "${{ fromJson(env.METADATA).version }}"

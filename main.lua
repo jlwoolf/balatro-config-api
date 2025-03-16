@@ -2,9 +2,9 @@ CONFIG_API = {}
 LOADER_API.init()
 
 function CONFIG_API.init(ui)
-	local ref_table = SMODS.current_mod.config
+	local id = SMODS.current_mod.id
 	SMODS.current_mod.config_tab = function()
-		local node = CONFIG_API.BUILDER.build(ui, ref_table)
+		local node = CONFIG_API.BUILDER.build(ui, id)
 		return node or {}
 	end
 end

@@ -135,17 +135,17 @@ end
 CONFIG_API.TABS = {}
 
 ---@param config ProcessedConfig
----@param args? { path?: string, ref_table?: table }
+---@param args? { path?: string, ref_table?: table, id?: string }
 function CONFIG_API.BUILDER.build_menu(config, args)
 	args = args or {}
-	args.path = args.path or "config-api"
+	args.path = args.path or args.id or "config-api"
 
 	---@type Tab.Args[]
 
 	---@type Tab.Args[]
 	local tabs = {}
 
-	if #CONFIG_API.UTILS.keys(config.items) then
+	if #CONFIG_API.UTILS.keys(config.items) > 0 then
 		table.insert(tabs, {
 			label = config.label or "Default",
 			items = config.items,
@@ -155,6 +155,7 @@ function CONFIG_API.BUILDER.build_menu(config, args)
 	end
 
 	for key, value in pairs(config.tabs) do
+
 		table.insert(tabs, {
 			label = value.label or CONFIG_API.UTILS.format_key(key),
 			items = value.items,
@@ -175,13 +176,13 @@ function CONFIG_API.BUILDER.build_menu(config, args)
 				{
 					n = G.UIT.C,
 					config = { padding = 0, colour = G.C.CLEAR },
-					nodes = CONFIG_API.BUILDER.build_items(tabs[1].items, args.ref_table),
+					nodes = CONFIG_API.BUILDER.build_items(tabs[1] and tabs[1].items or {}),
 				},
 			},
 		}
 	else
 		local parent_path = CONFIG_API.UTILS.get_parent_path(args.path)
-		local back_func = "openModUI_" .. "config-api"
+		local back_func = "openModUI_" .. (args.id or "config-api")
 		if parent_path ~= nil and parent_path ~= "" then
 			back_func = parent_path
 		end
@@ -198,7 +199,9 @@ function CONFIG_API.BUILDER.build_menu(config, args)
 end
 
 ---@param config ConfigGroup
-function CONFIG_API.BUILDER.build(config, ref_table)
+function CONFIG_API.BUILDER.build(config, mod_id)
+	local ref_table = SMODS.Mods[mod_id].config
+
 	local processed_config = process_config(config)
 
 	if not processed_config then
@@ -208,5 +211,6 @@ function CONFIG_API.BUILDER.build(config, ref_table)
 
 	return CONFIG_API.BUILDER.build_menu(processed_config, {
 		ref_table = ref_table,
+		id = mod_id,
 	})
 end

@@ -1,6 +1,6 @@
 # Balatro Config API
 
-This is a mod created with the intent of simplifying mod configuration. The idea is that you just have to define a ui configuration with minimal attributes, and a config tab will be generated for your mod. This mod depends on my (loader-api)[https://github.com/jlwoolf/balatro-loader-api], so make sure you have that installed. Documentation follows the convention outlined in my loader-api.
+This is a mod created with the intent of simplifying mod configuration. The idea is that you just have to define a ui configuration with minimal attributes, and a config tab will be generated for your mod. This mod depends on my [loader-api](https://github.com/jlwoolf/balatro-loader-api), so make sure you have that installed. Documentation follows the convention outlined in my loader-api.
 
 ## Usage
 
@@ -123,7 +123,7 @@ There are 4 input types currently available to use, `toggle`, `slider`, `option`
 
 ### Custom
 
-This is a custom item, so there is no create function. Instead, provide a `build` function that takes the custom item as it's input and returns a valid UI node (see the (UI Guide)[https://github.com/Steamodded/smods/wiki/UI-Guide]).
+This is a custom item, so there is no create function. Instead, provide a `build` function that takes the custom item as it's input and returns a valid UI node (see the [UI Guide](https://github.com/Steamodded/smods/wiki/UI-Guide)).
 
 ```lua
 ---@class Custom

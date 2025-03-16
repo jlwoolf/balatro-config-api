@@ -1,10 +1,12 @@
----@class Deck.Args
+CONFIG_API.UI = CONFIG_API.UI or {}
+
+---@class Deck.UI.Args
 ---@field deck? Back the deck to create
 
 ---creates the card node for the card tab in the config
----@param args? Deck.Args
+---@param args? Deck.UI.Args
 ---@return UI.Node
-function CONFIG_API.create_deck(args)
+function CONFIG_API.UI.create_deck(args)
     args = args or {}
     args.deck = args.deck or Back()
 

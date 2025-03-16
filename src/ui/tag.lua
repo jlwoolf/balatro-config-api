@@ -1,3 +1,5 @@
+CONFIG_API.UI = CONFIG_API.UI or {}
+
 ---@class Tag.Args
 ---@field scale? number scale of the tag sprite. Defaults to 1
 ---@field size? number the size of the sprite
@@ -6,7 +8,7 @@
 
 ---creates the tag node for the tag tab in the config
 ---@return UI.Node
-function CONFIG_API.create_tag(args)
+function CONFIG_API.UI.create_tag(args)
 	args = args or {}
 	args.scale = args.scale or 1
 	args.size = args.size or 0.8
@@ -15,8 +17,7 @@ function CONFIG_API.create_tag(args)
 
 	--- copied over from Tag:generate_UI but removed dependencies that come from
 	--- actual tag definition. This way sprite can render without tag enabled
-	local tag_sprite =
-		Sprite(0, 0, args.size * 1, args.size * 1, G.ASSET_ATLAS[args.atlas], args.pos)
+	local tag_sprite = Sprite(0, 0, args.size * 1, args.size * 1, G.ASSET_ATLAS[args.atlas], args.pos)
 	tag_sprite.T.scale = args.scale
 	tag_sprite.float = true
 	tag_sprite.states.hover.can = true

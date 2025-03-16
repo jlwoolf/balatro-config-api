@@ -155,7 +155,6 @@ function CONFIG_API.BUILDER.build_menu(config, args)
 	end
 
 	for key, value in pairs(config.tabs) do
-
 		table.insert(tabs, {
 			label = value.label or CONFIG_API.UTILS.format_key(key),
 			items = value.items,

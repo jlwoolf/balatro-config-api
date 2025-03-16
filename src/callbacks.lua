@@ -34,11 +34,11 @@ function CONFIG_API.CALLBACKS.create_callback(args)
 	local G_update_ref = G.update
 	local prev_value = args.ref_table[args.ref_value]
 	function G:update(dt)
-		-- G_update_ref(self, dt)
+		G_update_ref(self, dt)
 
-		-- if prev_value ~= args.ref_table[args.ref_value] then
-		-- 	CONFIG_API.CALLBACKS[args.variant][callback_index](args.ref_table[args.ref_value])
-		-- 	prev_value = args.ref_table[args.ref_value]
-		-- end
+		if prev_value ~= args.ref_table[args.ref_value] then
+			CONFIG_API.CALLBACKS[args.variant][callback_index](args.ref_table[args.ref_value])
+			prev_value = args.ref_table[args.ref_value]
+		end
 	end
 end

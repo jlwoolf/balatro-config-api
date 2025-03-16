@@ -4,10 +4,10 @@ CONFIG_API.BUILDER = {}
 ---@class Custom.Args: table<string,any>
 ---@field build fun(args: Custom.Args): UI.Node[]
 
----@class Custom.WithType: Input.Args
+---@class Custom.WithType: Custom.Args
 ---@field type 'custom'
 
----@class Custom.WithApiType: Input.Args
+---@class Custom.WithApiType: Custom.Args
 ---@field config_api_type 'custom'
 
 ---@alias Custom Custom.WithType|Custom.WithApiType

@@ -1,6 +1,6 @@
 # Balatro Config API
 
-This is a mod created with the intent of simplifying mod configuration. The idea is that you just have to define a ui configuration with minimal attributes, and a config tab will be generated for your mod. This mod depends on my [loader-api](git@github.com:jlwoolf/balatro-loader-api.git), so make sure you have that installed. Documentation follows the convention outlined in my loader-api.
+This is a mod created with the intent of simplifying mod configuration. The idea is that you just have to define a ui configuration with minimal attributes, and a config tab will be generated for your mod. This mod depends on my (loader-api)[https://github.com/jlwoolf/balatro-loader-api], so make sure you have that installed. Documentation follows the convention outlined in my loader-api.
 
 ## Usage
 
